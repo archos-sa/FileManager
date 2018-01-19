@@ -1,0 +1,16 @@
+<PreferenceScreen
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+            android:title="@string/network_shared_folders">
+        <PreferenceScreen android:title="@string/samba_settings_title"
+                android:summary="@string/samba_settings_summary">
+                <intent
+                                android:action="android.intent.action.MAIN"
+                                android:targetPackage="com.archos.mediacenter.music"
+                                android:targetClass="com.archos.filemanager.SambaPreferenceActivity" >
+                </intent>
+        </PreferenceScreen>
+    </PreferenceCategory>
+
+</PreferenceScreen>

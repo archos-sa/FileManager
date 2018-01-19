@@ -1,0 +1,109 @@
+diff -ruN a/libcore/luni/src/main/java/java/nio/channels/FileChannel.java b/libcore/luni/src/main/java/java/nio/channels/FileChannel.java
+--- a/libcore/luni/src/main/java/java/nio/channels/FileChannel.java	2012-08-02 04:42:43.000000000 +0200
++++ b/libcore/luni/src/main/java/java/nio/channels/FileChannel.java	2012-10-08 16:11:38.798615836 +0200
+@@ -17,6 +17,7 @@
+ package java.nio.channels;
+ 
+ import java.io.IOException;
++import java.io.FileOutputStream;
+ import java.nio.ByteBuffer;
+ import java.nio.MappedByteBuffer;
+ import java.nio.channels.spi.AbstractInterruptibleChannel;
+@@ -541,6 +542,12 @@
+             WritableByteChannel target) throws IOException;
+ 
+     /**
++     * @hide
++     */
++    public long transferTo(long position, long count,
++            FileOutputStream target) throws IOException { return 0; }
++
++    /**
+      * Truncates the file underlying this channel to a given size. Any bytes
+      * beyond the given size are removed from the file. If there are no bytes
+      * beyond the given size then the file contents are unmodified.
+diff -ruN a/libcore/luni/src/main/java/java/nio/FileChannelImpl.java b/libcore/luni/src/main/java/java/nio/FileChannelImpl.java
+--- a/libcore/luni/src/main/java/java/nio/FileChannelImpl.java	2012-08-02 04:42:43.000000000 +0200
++++ b/libcore/luni/src/main/java/java/nio/FileChannelImpl.java	2012-10-08 16:12:08.014615815 +0200
+@@ -19,6 +19,7 @@
+ 
+ import java.io.Closeable;
+ import java.io.FileDescriptor;
++import java.io.FileOutputStream;
+ import java.io.IOException;
+ import java.nio.channels.ClosedChannelException;
+ import java.nio.channels.FileChannel;
+@@ -389,6 +390,51 @@
+         return write(buffer, position);
+     }
+ 
++   /**
++    * @Override
++    * Returns the current file size, as an integer number of bytes.
++    */
++    public long transferTo(long position, long count, FileOutputStream target) throws IOException {
++        checkOpen();
++        if (!target.getChannel().isOpen()) {
++            throw new ClosedChannelException();
++        }
++        checkReadable();
++        if (target.getChannel() instanceof FileChannelImpl) {
++            ((FileChannelImpl) target.getChannel()).checkWritable();
++        }
++        if (position < 0 || count < 0) {
++            throw new IllegalArgumentException("position=" + position + " count=" + count);
++        }
++
++        if (count == 0 || position >= size()) {
++            return 0;
++        }
++        count = Math.min(count, size() - position);
++
++        boolean completed = false;
++
++        FileDescriptor outFd = target.getFD();
++        long rc = 0;
++        try {
++            begin();
++            try {
++                MutableLong offset = new MutableLong(position);
++                rc = Libcore.os.sendfile(outFd, fd, offset, count);
++                completed = true;
++            } catch (ErrnoException errnoException) {
++                // If the OS doesn't support what we asked for, we want to fall through and
++                // try a different approach. If it does support it, but it failed, we're done.
++                if (errnoException.errno != ENOSYS && errnoException.errno != EINVAL) {
++                    throw errnoException.rethrowAsIOException();
++                }
++            }
++        } finally {
++            end(completed);
++        }
++        return rc;
++    }
++
+     public long transferTo(long position, long count, WritableByteChannel target) throws IOException {
+         checkOpen();
+         if (!target.isOpen()) {
+diff -ruN a/libcore/luni/src/main/native/libcore_io_Posix.cpp b/libcore/luni/src/main/native/libcore_io_Posix.cpp
+--- a/libcore/luni/src/main/native/libcore_io_Posix.cpp	2012-08-02 04:42:43.000000000 +0200
++++ b/libcore/luni/src/main/native/libcore_io_Posix.cpp	2012-10-08 16:12:44.430615789 +0200
+@@ -1015,14 +1015,14 @@
+     int outFd = jniGetFDFromFileDescriptor(env, javaOutFd);
+     int inFd = jniGetFDFromFileDescriptor(env, javaInFd);
+     static jfieldID valueFid = env->GetFieldID(JniConstants::mutableLongClass, "value", "J");
+-    off_t offset = 0;
+-    off_t* offsetPtr = NULL;
++    loff_t offset = 0;
++    loff_t* offsetPtr = NULL;
+     if (javaOffset != NULL) {
+         // TODO: fix bionic so we can have a 64-bit off_t!
+         offset = env->GetLongField(javaOffset, valueFid);
+         offsetPtr = &offset;
+     }
+-    jlong result = throwIfMinusOne(env, "sendfile", TEMP_FAILURE_RETRY(sendfile(outFd, inFd, offsetPtr, byteCount)));
++    jlong result = throwIfMinusOne(env, "sendfile64", TEMP_FAILURE_RETRY(sendfile64(outFd, inFd, offsetPtr, byteCount)));
+     if (javaOffset != NULL) {
+         env->SetLongField(javaOffset, valueFid, offset);
+     }
+

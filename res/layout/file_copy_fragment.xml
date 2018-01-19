@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffffff"
+    android:gravity="left"
+    android:orientation="vertical"
+    android:padding="15dip" >
+
+    <TextView
+        android:id="@+id/action"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/copying"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <ProgressBar
+        android:id="@+id/progress"
+        style="@android:style/Widget.DeviceDefault.ProgressBar.Horizontal"
+        android:layout_width="300dip"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="4dip"
+        android:layout_marginTop="10dip"
+        android:clickable="false"
+        android:focusable="false" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal" >
+
+        <ProgressBar
+            android:id="@+id/progress_small"
+            style="?android:attr/progressBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="8dip"
+            android:layout_marginTop="4dip" />
+
+        <TextView
+            android:id="@+id/progress_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+    </LinearLayout>
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/open_file_after_download"
+        android:id="@+id/open_file" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/my_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dip"
+        android:layout_weight="1"
+        android:scrollbars="vertical" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="bottom|center_horizontal"
+        android:orientation="horizontal" >
+        <FrameLayout
+            android:id="@+id/done"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:visibility="gone"
+            android:background="@drawable/button_selector_background" >
+
+            <TextView
+                android:id="@+id/text_done"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:padding="15dip"
+                android:text="@android:string/ok"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/background_2014_color" />
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/minimize"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/button_selector_background" >
+
+            <TextView
+                android:id="@+id/text_minmize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:drawableLeft="@drawable/ic_minus"
+                android:drawablePadding="5dip"
+                android:padding="15dip"
+                android:text="@string/run_in_background"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/background_2014_color" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/cancel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/button_selector_background" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:drawableLeft="@drawable/ic_cross"
+                android:drawablePadding="5dip"
+                android:padding="15dip"
+                android:text="@android:string/cancel"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/simple_red" />
+        </FrameLayout>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/archos_info_common_details"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="0dip"
+    android:paddingLeft="16dip"
+    android:paddingRight="16dip"
+    android:paddingTop="8dip" >
+
+    <LinearLayout
+        android:id="@+id/primary_size_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/archos_info_size_label"
+            style="@style/InfoDialogText.Grey"
+            android:paddingRight="8dip"
+            android:text="@string/file_info_label_size_internal" />
+
+        <TextView
+            android:id="@+id/archos_info_size"
+            style="@style/InfoDialogText"
+            android:layout_width="match_parent" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/secondary_size_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/archos_info_size_label_2"
+            style="@style/InfoDialogText.Grey"
+            android:paddingRight="8dip"
+            android:text="@string/file_info_label_size_sd" />
+
+        <TextView
+            android:id="@+id/archos_info_size_2"
+            style="@style/InfoDialogText"
+            android:layout_width="match_parent" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <ProgressBar
+            android:id="@+id/archos_info_progress"
+            style="?android:attr/progressBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:padding="5dip" />
+
+        <TextView
+            android:id="@+id/archos_info_number_files"
+            style="@style/InfoDialogText"
+            android:layout_width="match_parent" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/archos_info_permission_label"
+            style="@style/InfoDialogText.Grey"
+            android:paddingRight="8dip"
+            android:text="@string/file_info_label_permission" />
+
+        <TextView
+            android:id="@+id/archos_info_permission"
+            style="@style/InfoDialogText"
+            android:layout_width="match_parent" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/archos_info_last_modified_label"
+            style="@style/InfoDialogText.Grey"
+            android:paddingRight="8dip"
+            android:text="@string/file_info_label_last_modified" />
+
+        <TextView
+            android:id="@+id/archos_info_last_modified"
+            style="@style/InfoDialogText"
+            android:layout_width="match_parent" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/archos_info_mime_type_label"
+            style="@style/InfoDialogText.Grey"
+            android:paddingRight="8dip"
+            android:text="@string/file_info_label_mime_type" />
+
+        <TextView
+            android:id="@+id/archos_info_mime_type"
+            style="@style/InfoDialogText"
+            android:layout_width="match_parent" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:layout_marginBottom="4dip"
+        android:layout_marginTop="16dip"
+        android:background="#ffD0D0D0" />
+
+    <TextView
+        android:id="@+id/archos_info_fullpath"
+        style="@style/InfoDialogText"
+        android:layout_width="match_parent"
+        android:paddingBottom="8dip"
+        android:singleLine="false" />
+
+</LinearLayout>

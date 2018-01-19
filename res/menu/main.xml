@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/action_single_mode"
+        android:orderInCategory="10"
+        android:title="@string/single_mode"/>
+
+    <item
+        android:id="@+id/action_double_mode"
+        android:orderInCategory="10"
+        android:title="@string/double_mode"/>
+
+    <item
+        android:id="@+id/action_samba_password"
+        android:orderInCategory="10"
+        android:title="@string/samba_password"/>
+
+</menu>

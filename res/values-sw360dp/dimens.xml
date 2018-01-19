@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- These values are for A70V2 in portrait (600x1024) -->
+
+<resources>
+    <dimen name="item_horizontal_offset">10dip</dimen>
+
+    <dimen name="checkbox_height">64dip</dimen>
+    <dimen name="checkbox_width">50dip</dimen>
+    <dimen name="name_text_size">20sp</dimen>
+    <dimen name="info_text_size">16sp</dimen>
+    <dimen name="title_padding_top">20dp</dimen>
+    <dimen name="title_padding_left">10dp</dimen>
+</resources>

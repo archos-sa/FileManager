@@ -1,0 +1,9 @@
+<resources>
+
+    <!-- Video Player -->
+    <string-array name="new_file_or_directory" translatable="false">
+        <item>@string/new_directory</item>
+        <item>@string/new_file</item>
+    </string-array>
+
+</resources>

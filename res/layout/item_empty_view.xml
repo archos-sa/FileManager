@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:clickable="false"
+    android:focusable="false"
+    android:gravity="center"
+    android:paddingLeft="@dimen/item_horizontal_offset"
+    android:paddingRight="@dimen/item_horizontal_offset"
+    android:paddingTop="80dip"
+    android:text="@string/directory_empty"
+    android:textAppearance="?android:attr/textAppearanceLarge"
+    android:textColor="@color/empty_view_text_color"
+    android:textSize="@dimen/name_text_size"
+    android:textStyle="bold"
+    android:typeface="sans" />

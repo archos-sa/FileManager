@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- No bold textStyle on Lollipop as it is already bold for some reason -->
+    <style name="PagerTabStripText" parent="@android:style/TextAppearance.DeviceDefault.Widget.TabWidget">
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">#ffffff</item>
+    </style>
+
+</resources>

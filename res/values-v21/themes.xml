@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="ActivityTheme" parent="@android:style/Theme.DeviceDefault.Light.DarkActionBar">
+        <item name="android:windowBackground">@drawable/background_2014</item>
+        <item name="android:actionModeBackground">@color/action_mode_background</item>
+		<item name="android:actionBarStyle">@style/ActionBar</item>
+		<item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
+        <item name="android:actionOverflowButtonStyle">@style/MyMenuOverflowButton</item>
+        <item name="android:colorPrimary">@color/background_2014_color</item>
+        <item name="android:colorPrimaryDark">@color/background_2014_color</item>
+        <item name="android:colorAccent">@color/background_2014_color</item>
+    </style>
+
+</resources>

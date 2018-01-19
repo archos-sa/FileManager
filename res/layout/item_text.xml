@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:clickable="false"
+    android:focusable="false"
+    android:gravity="center"
+    android:paddingTop="4dip"
+    android:paddingLeft="@dimen/item_horizontal_offset"
+    android:paddingRight="@dimen/item_horizontal_offset"
+    android:textAppearance="?android:attr/textAppearanceMedium"
+    android:textColor="@color/item_text_color"
+    android:typeface="sans" />

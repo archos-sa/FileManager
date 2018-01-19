@@ -1,0 +1,12 @@
+bin
+gen
+build
+.settings/
+local.properties
+tests/.classpath
+tests/.project
+tests/project.properties
+libs/armeabi-v7a
+FileManager2.iml
+.idea/
+.gradle/

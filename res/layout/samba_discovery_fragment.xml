@@ -1,0 +1,95 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:paddingTop="16dip"
+    tools:context=".network.SambaDiscoveryFragment" >
+
+    <TextView
+        android:id="@+id/title"
+        style="@style/FragmentHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minHeight="40dip"
+        android:text="@string/network_shared_folders"
+        android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@+id/progress_small_placeholder" />
+
+    <View
+        android:id="@id/progress_small_placeholder"
+        android:layout_width="40dip"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/title"
+        android:layout_alignTop="@+id/title"
+        android:layout_marginLeft="8dip"
+        android:layout_marginRight="4dip"
+        android:layout_alignParentRight="true" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/discovery_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/title"
+        android:orientation="vertical" />
+
+    <ProgressBar
+        android:id="@+id/progress_large"
+        style="@android:style/Widget.DeviceDefault.ProgressBar.Large"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dip"
+        android:clickable="false"
+        android:indeterminateOnly="true"
+        android:visibility="visible" />
+
+    <View
+        android:id="@+id/progress_large_placeholder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/progress_large"
+        android:layout_alignTop="@+id/progress_large"
+        android:layout_alignLeft="@+id/progress_large"
+        android:layout_alignRight="@+id/progress_large"
+        android:background="@android:color/transparent"/>
+
+    <LinearLayout
+        android:id="@+id/empty_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dip"
+        android:background="@android:color/white"
+        android:clickable="false"
+        android:focusable="false"
+        android:orientation="vertical"
+        android:visibility="gone" >
+
+        <TextView
+            android:id="@+id/empty_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="16dip"
+            android:layout_marginRight="16dip"
+            android:gravity="center"
+            android:maxWidth="400dip"
+            android:text="@string/no_server"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/empty_view_text_color"
+            android:textSize="@dimen/name_text_size"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/retry_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dip"
+            android:text="@string/refresh"
+            android:layout_gravity="center_horizontal" />
+
+    </LinearLayout>
+
+</RelativeLayout>

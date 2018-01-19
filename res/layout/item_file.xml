@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+   This layout defines items of the browser list.
+   There is a thumbnail, a first line for the name, and a second line
+   for informations (size for files, number of files for directories).
+-->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/list_item"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:animateLayoutChanges="false"
+    android:background="?android:attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true"
+    android:orientation="horizontal" >
+
+    <com.archos.filemanager.ArchosCheckBox
+        android:id="@+id/select"
+        android:layout_width="@dimen/checkbox_width"
+        android:layout_height="match_parent" />
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:paddingLeft="@dimen/icon_padding_left"
+        android:src="@drawable/filetype_folder" />
+
+    <!-- Center vertically the lines of text in the area on right of the icon -->
+
+    <LinearLayout
+        android:id="@+id/text_lines"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:orientation="vertical"
+        android:paddingBottom="8dip"
+        android:paddingRight="8dip"
+        android:paddingTop="8dip" >
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="3"
+            android:singleLine="false"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/name_text_color"
+            android:textSize="@dimen/name_text_size"
+            android:textStyle="bold"
+            android:typeface="sans" />
+
+        <TextView
+            android:id="@+id/info"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="3"
+            android:singleLine="false"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/background_2014_color"
+            android:textSize="@dimen/info_text_size"
+            android:typeface="sans" />
+    </LinearLayout>
+
+</LinearLayout>

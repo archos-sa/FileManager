@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string name="app_name">Files</string>
+    <string name="exit">Exit</string>
+    <string name="error_permission_storage">FileManager needs storage permission to manage your files, without it, the app will close.</string>
+    <string name="allow">Allow</string>
+    <string name="error">Error</string>
+    <string name="add_to_launcher">Add to launcher</string>
+    <string name="gain_write_access">Gain write access</string>
+</resources>

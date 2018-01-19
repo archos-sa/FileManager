@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal" >
+
+    <RelativeLayout
+        android:layout_width="@dimen/left_panel_width"
+        android:layout_height="match_parent" >
+
+        <fragment
+            android:id="@+id/source_drawer"
+            android:name="com.archos.filemanager.sources.SourceFragment"
+            android:layout_width="@dimen/left_panel_width"
+            android:layout_height="match_parent" />
+
+        <com.archos.filemanager.ProgressDrawable
+            android:id="@+id/progress_drawable"
+            android:layout_width="48dip"
+            android:layout_height="48dip"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="24dip"
+            android:layout_marginRight="24dip"
+            android:visibility="gone" />
+    </RelativeLayout>
+    <!-- Note: the orientation of this LinearLayout will be changed programmatically depending on the screen size -->
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:id="@+id/panels_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/background_2014"
+            android:orientation="horizontal" >
+
+            <FrameLayout
+                android:id="@+id/f1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <FrameLayout
+                android:id="@+id/f2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/info_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" >
+        </FrameLayout>
+    </FrameLayout>
+
+</LinearLayout>

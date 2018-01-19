@@ -1,0 +1,6 @@
+2.1.33 - September 27th, 2013
+- Fix directories with lots of files sometimes not loading correctly in SMB mode.
+2.1.24 - May 28th, 2013
+- Faster SMB discovery
+- Resolve SMB timeouts
+- Fix file deletion leading to empty file viewed from host via MTP

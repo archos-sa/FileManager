@@ -1,0 +1,25 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ff6f00" >
+
+    <LinearLayout
+        android:id="@+id/main_file_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingBottom="8dip"
+        android:paddingLeft="8dip"
+        android:paddingRight="8dip"
+        android:paddingTop="16dip" >
+
+        <!-- TextViews will be added here programatically -->
+
+
+
+
+
+    </LinearLayout>
+
+</ScrollView>

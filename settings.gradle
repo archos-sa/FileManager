@@ -1,0 +1,2 @@
+include ':FileCoreLibrary'
+project(':FileCoreLibrary').projectDir = new File(settingsDir, '../FileCoreLibrary')

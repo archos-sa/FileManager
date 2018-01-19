@@ -1,0 +1,70 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".network.NetworkRootFragment" >
+
+    <!-- This additionnal nested FrameLayout is needed to have the R.id.veil above R.id.network_root_view when adding a fragment in R.id.network_root_view -->
+
+    <FrameLayout
+        android:id="@+id/network_root_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:baselineAligned="false"
+            android:orientation="horizontal" >
+
+            <fragment
+                android:id="@+id/samba_discovery_fragment"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="10"
+                class="com.archos.filemanager.network.SambaDiscoveryFragment"
+                android:background="@android:color/transparent"
+                tools:layout="@layout/samba_discovery_fragment" />
+
+            <fragment
+                android:id="@+id/shortcuts_fragment"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="7"
+                class="com.archos.filemanager.network.shortcuts.ShortcutsFragment"
+                tools:layout="@layout/shortcuts_fragment" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/network_state_veil"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0"
+        android:background="@android:color/white"
+        android:clickable="true" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="16dip"
+            android:layout_marginRight="16dip"
+            android:gravity="center"
+            android:maxWidth="500dip"
+            android:text="@string/no_network_title"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/error_view_text_color"
+            android:textSize="@dimen/name_text_size"
+            android:textStyle="bold" />
+    </FrameLayout>
+
+    <View
+        android:id="@+id/veil"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0"
+        android:background="@color/background_2014_color_transparent"
+        android:clickable="false" />
+
+</FrameLayout>

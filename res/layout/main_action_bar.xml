@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/path_scrollview"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#ffffab00" >
+
+    <LinearLayout
+        android:id="@+id/path_view"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <!-- Items (path segments) will be added dynamically to this LinearLayout -->
+
+    </LinearLayout>
+
+</HorizontalScrollView>
