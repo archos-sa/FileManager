@@ -12,6 +12,8 @@ import android.os.Build;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 
+import com.archos.environment.ArchosUtils;
+
 /**
  * Created by alexandre on 16/09/15.
  */
@@ -89,7 +91,9 @@ public class PermissionChecker {
         }
         else {
             // inform import service about the event
-            mActivity.sendBroadcast(new Intent(STORAGE_PERMISSION_GRANTED));
+            Intent intent = new Intent(STORAGE_PERMISSION_GRANTED);
+            intent.setPackage(ArchosUtils.getGlobalContext().getPackageName());
+            mActivity.sendBroadcast(intent);
             isDialogDisplayed = false;
         }
     }

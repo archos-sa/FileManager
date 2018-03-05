@@ -6,6 +6,8 @@ import android.os.Bundle;
 import com.archos.filemanager.ShortcutDb;
 import com.archos.filemanager.network.shortcuts.ShortcutsFragment;
 
+import com.archos.environment.ArchosUtils;
+
 /**
  * Created by vapillon on 13/04/16.
  */
@@ -40,8 +42,12 @@ public class ShortcutRenameDialog extends RenameDialog {
         mHandler.post(new Runnable() {
             public void run() {
                 if (success) {
-                    getActivity().sendBroadcast(new Intent(ShortcutsFragment.ACTION_REFRESH_SHORTCUTS_FRAGMENT));
-                    getActivity().sendBroadcast(new Intent(ShortcutsFragment.ACTION_STOP_ACTION_MODE));
+                    Intent intent1 = new Intent(ShortcutsFragment.ACTION_REFRESH_SHORTCUTS_FRAGMENT);
+                    intent1.setPackage(ArchosUtils.getGlobalContext().getPackageName());
+                    getActivity().sendBroadcast(intent1);
+                    Intent intent2 = new Intent(ShortcutsFragment.ACTION_STOP_ACTION_MODE);
+                    intent2.setPackage(ArchosUtils.getGlobalContext().getPackageName());
+                    getActivity().sendBroadcast(intent2);
                     renameSuccess();
                 } else {
                     renameFail();
